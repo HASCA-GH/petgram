@@ -1,14 +1,17 @@
-import logo from './logo.svg';
-// import {Category} from './components/Category';
 import { ListOfCategories } from './components/ListOfCategories';
-import './App.css';
+import ListOfPhotoCards from './components/ListOfPhotoCards/ListOfPhotoCards';
+// import PhotoCard from './components/PhotoCard/PhotoCard';
+
+import { GlobalStyle } from './GlobalStyles';
+
 
 function App() {
   return (
-    <div className="App">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <Category/> */}
+    <div >
+        <GlobalStyle/>
         <ListOfCategories/>
+        {/* <PhotoCard /> */}
+        <ListOfPhotoCards/>
     </div>
   );
 }
