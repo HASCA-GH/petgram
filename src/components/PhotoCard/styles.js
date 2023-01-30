@@ -17,6 +17,11 @@ import { fadeIn } from "../../styles/animation";
 // const fadeIn = ({time = '1s', type = 'ease'} = {}) => 
 //     css`animation: ${time} ${fadeInKeyFrames} ${type};`
 
+export const Article = styled.article`
+/* Se puso min-height para que tenga una altura y funcione con el intersecting */
+    min-height: 300px;
+`
+
 export const ImgWrapper = styled.div`
     border-radius: 10px;
     display: block;

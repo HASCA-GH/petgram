@@ -59,10 +59,10 @@ export const ListOfCategories = () => {
           // ? <Item key={loading}>Cargando ...<Category/></Item>
           // ? <Item key={loading}><div className='xxx' style={{backgroundColor: "red"}}>Cargando ...</div></Item>
           ? <Item key={loading}>
-              <div class="lds-hourglass"></div>
-              <div class="lds-hourglass"></div>
-              <div class="lds-hourglass"></div>
-              <div class="lds-hourglass"></div>
+              <div className="lds-hourglass"></div>
+              <div className="lds-hourglass"></div>
+              <div className="lds-hourglass"></div>
+              <div className="lds-hourglass"></div>
             </Item>
           : categories.map(category => 
             <Item key={category.id}>
