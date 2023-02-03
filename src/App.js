@@ -4,14 +4,17 @@ import ListOfPhotoCards from './components/ListOfPhotoCards/ListOfPhotoCards';
 // import { ListOfPhotoCards } from './components/ListOfPhotoCards/ListOfPhotoCards';
 
 import { Logo } from './components/Logo/Logo';
+import PhotoCardWithQuery from './container/PhotoCardWithQuery';
 // import PhotoCard from './components/PhotoCard/PhotoCard';
+
+
 
 import { GlobalStyle } from './styles/GlobalStyles';
 
 
 function App() {
 
-  // Detectamos por parámetros de la URL el valor que se sale en la URL
+  // Detectamos por parámetros de la URL el valor que  sale en la URL
   // http://localhost:3001/?detail=5
   // En este caso el parámetro detail tiene valor de 5
   const urlParams = new window.URLSearchParams(window.location.search)
@@ -23,7 +26,7 @@ function App() {
         <GlobalStyle/>
         <Logo/>
         {detailId 
-          ? <h1>Detaild ID {detailId}</h1>
+          ? <PhotoCardWithQuery id={detailId}/>
           : <>
               <ListOfCategories/>
               {/* <PhotoCard /> */}
