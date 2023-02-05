@@ -1,11 +1,14 @@
-import { ListOfCategories } from './components/ListOfCategories';
-import ListOfPhotoCards from './components/ListOfPhotoCards/ListOfPhotoCards';
+import { Router } from '@reach/router';
+// import { ListOfCategories } from './components/ListOfCategories';
+// import ListOfPhotoCards from './components/ListOfPhotoCards/ListOfPhotoCards';
 
 // import { ListOfPhotoCards } from './components/ListOfPhotoCards/ListOfPhotoCards';
 
 import { Logo } from './components/Logo/Logo';
 import PhotoCardWithQuery from './container/PhotoCardWithQuery';
-// import PhotoCard from './components/PhotoCard/PhotoCard';
+import Home from './pages/Home';
+
+
 
 
 
@@ -27,11 +30,11 @@ function App() {
         <Logo/>
         {detailId 
           ? <PhotoCardWithQuery id={detailId}/>
-          : <>
-              <ListOfCategories/>
-              {/* <PhotoCard /> */}
-              <ListOfPhotoCards categoryId={6}/>
-            </>
+          : 
+            <Router>
+              <Home path='/'/>
+              <Home path='/pet/:id'/>
+            </Router> 
         }
         
     </div>
