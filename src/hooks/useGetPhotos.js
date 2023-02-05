@@ -4,7 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 // const ListOfPhotoCards = ({ data: { photos = [] } } = {}) => {
 export const useGetPhotos = (categoryId) => {
 
-  const withPhotos = gql`
+  const GET_PHOTOS = gql`
     query getPhotos ($categoryId: ID) {
       photos (categoryId: $categoryId ){
         id
@@ -16,7 +16,7 @@ export const useGetPhotos = (categoryId) => {
       }
     }
   `
-  const { loading, error, data } = useQuery(withPhotos, {
+  const { loading, error, data } = useQuery(GET_PHOTOS, {
     variables: { categoryId },
   });
 

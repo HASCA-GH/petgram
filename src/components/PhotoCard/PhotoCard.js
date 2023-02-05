@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Article, ImgWrapper, Img, Button } from './styles'
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { Article, ImgWrapper, Img  } from './styles'
+// import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
+
+import FavButton from '../FavButton/FavButton';
+import ToggleLikeMutation from '../../container/ToggleLikeMutation';
+
 
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
 
@@ -76,7 +80,7 @@ const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
   //     })
   // }, [element])
   
-  const Icon = liked ? MdFavorite : MdFavoriteBorder
+  // const Icon = liked ? MdFavorite : MdFavoriteBorder
   // const setLocalStorage = value => {
   //   try {
   //     localStorage.setItem(key, value)
@@ -88,6 +92,8 @@ const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
   // Esta instrucción aquí sale error por lo que se optó por ponerlo dentro del componente articulo; sino lo hacemos así se pierde referencia puesto que está en null
   // if (!show) return null
   
+  
+
   return (
     // OJO: que estilamos article por Article para que tenga una altura minima en el viewport. Chequear el estilo
     // <article ref={element}>
@@ -101,10 +107,23 @@ const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
                   <Img src={src} alt="" />
               </ImgWrapper>
             </a>
-            <Button onClick={() => setLiked(!liked)}>
+            {/* <Button onClick={() => setLiked(!liked)}>
                 <Icon size={'32px'}/>
                 {likes} likes!
-            </Button>
+            </Button> */}
+            <ToggleLikeMutation >
+              {
+                (toggleLike)=> {
+                  const handelFavClick = () => {
+                    !liked && toggleLike({variables: {
+                      input: {id}
+                    }})
+                    setLiked(!liked)
+                  }
+                  return <FavButton liked={liked} likes={likes} onClick={handelFavClick}/>
+                }
+              }
+            </ToggleLikeMutation>
         </>
       }
     </Article>
