@@ -11,6 +11,7 @@ import Detail from './pages/Detail';
 
 
 import { GlobalStyle } from './styles/GlobalStyles';
+import NavBar from './components/NavBar/NavBar';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
               <Home path='/pet/:id'/>
               <Detail path='/detail/:detailId'/>
         </Router> 
+        <NavBar/>
+
     </div>
   );
 }
