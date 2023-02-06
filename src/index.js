@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import Context from './Context';
+
 import App from './App';
 
 
@@ -39,9 +41,11 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-  // </React.StrictMode>
+// <React.StrictMode>
+  <Context.Provider>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </Context.Provider>
+// </React.StrictMode>
 );
