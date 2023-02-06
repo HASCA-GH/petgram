@@ -1,4 +1,5 @@
 import React from 'react'
+import UserForm from '../components/UserForm/UserForm'
 import Context from '../Context'
 
 const NotRegisteredUser = () => {
@@ -7,9 +8,7 @@ const NotRegisteredUser = () => {
       {
         ({activateAuth}) =>{
           return (
-            <form onSubmit={activateAuth}>
-              <button>Iniciar Sesión</button>
-            </form>
+            <UserForm onSubmit={activateAuth}/>
           )
         }
       }
