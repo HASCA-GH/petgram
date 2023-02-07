@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Article, ImgWrapper, Img  } from './styles'
 // import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+// import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
 
 import FavButton from '../FavButton/FavButton';
@@ -34,11 +34,11 @@ const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1518791841217-8f162f1e1
 
 // }
 
-const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
+const PhotoCard = ({id, liked, likes = 0, src = DEFAULT_IMAGE}) => {
   const [show, element] = useNearScreen()
   // const element = useRef(null)
   // const [show, setShow] = useState(false)
-  const key = `like-${id}`
+  // const key = `like-${id}`
   // const [liked, setLiked] = useState(()=> {
   //   try {
   //     const like = localStorage.getItem(key)
@@ -48,7 +48,7 @@ const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
   //   }
   // })
 
-  const [liked, setLiked] = useLocalStorage(key, false)
+  // const [liked, setLiked] = useLocalStorage(key, false)
 
 
   // console.log(liked)
@@ -115,13 +115,19 @@ const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
             <ToggleLikeMutation >
               {
                 (toggleLike)=> {
-                  const handelFavClick = () => {
-                    !liked && toggleLike({variables: {
+                  // const handleFavClick = () => {
+                  //   !liked && toggleLike({variables: {
+                  //     input: {id}
+                  //   }})
+                  //   setLiked(!liked)
+                  // }
+                  const handleFavClick = () => {
+                    toggleLike({variables: {
                       input: {id}
                     }})
-                    setLiked(!liked)
+                    
                   }
-                  return <FavButton liked={liked} likes={likes} onClick={handelFavClick}/>
+                  return <FavButton liked={liked} likes={likes} onClick={handleFavClick}/>
                 }
               }
             </ToggleLikeMutation>

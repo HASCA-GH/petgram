@@ -7,7 +7,7 @@ import { GlobalStyle } from './styles/GlobalStyles';
 import NavBar from './components/NavBar/NavBar';
 
 import { Logo } from './components/Logo/Logo';
-import PhotoCardWithQuery from './container/PhotoCardWithQuery';
+// import PhotoCardWithQuery from './container/PhotoCardWithQuery';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Favs from './pages/Favs';
