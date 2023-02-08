@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useInputValue from '../../hooks/useInputValue'
-import {Error, Form, Input, Button, Title} from './styles'
+import SubmitButton from '../SubmitButton/SubmitButton'
+import {Error, Form, Input, Title} from './styles'
+
+
 // const useInputValue = initialValue => {
 //     const [value, setValue] = useState(initialValue)
 //     const onChange = e => setValue(e.target.value)
@@ -45,7 +48,8 @@ const UserForm = ({error, disabled, onSubmit, title }) => {
                 type="password"  
                 placeholder='Password'
                 {...password} />
-            <Button disabled={disabled}>{title}</Button>
+            {/* <Button disabled={disabled}>{title}</Button> */}
+            <SubmitButton disabled={disabled}>{title}</SubmitButton>
         </Form>
         {error && <Error>{error}</Error>}
     </>

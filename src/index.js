@@ -35,7 +35,10 @@ const client = new ApolloClient({
       window.sessionStorage.removeItem('token')
       window.location.href='/'
     }
-  }
+  },
+  defaultOptions: {
+    mutate: { errorPolicy: 'ignore' },
+  },
 });
 
 // const client = ...

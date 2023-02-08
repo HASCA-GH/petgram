@@ -1,11 +1,12 @@
 import React, {useContext} from 'react'
-import Context from '../Context'
+// import Context from '../Context'
+import {Context} from '../Context'
 import UserForm from '../components/UserForm/UserForm'
 import RegisterMutation from '../container/RegisterMutation'
 import LoginMutation from '../container/LoginMutation'
 
 const NotRegisteredUser = () => {
-  const {activateAuth} = useContext(Context.Context)
+  const {activateAuth} = useContext(Context)
   // return (
     // <Context.Consumer>
     //   {
